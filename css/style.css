@@ -1,0 +1,43 @@
+body {font: 16px "Comic Sans MS"; color: #333333; 
+text-align:center;
+
+ }
+
+a { color:  333333;
+   text-decoration: none;
+ 
+   } 
+a:hover { 
+    color: #1E90FF; }
+ #error{
+    color: red;
+ }
+ 
+#content{ 
+
+ width:200px;
+ height:200px;
+ background-color:#E6E3DA;
+ border-radius: 47px;
+margin:30px auto;
+padding: 10px 10px;
+display: table;
+position:relative;
+ }
+ .table{
+    border: 0;
+   
+ }
+.input{
+border:2px solid #999999;
+
+background-color:#FFFFFF;
+padding: 0 7px;
+} 
+
+ 
+.input:focus{
+border:2px solid #666666;
+background-color:#FFFFFF;
+
+}
