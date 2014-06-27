@@ -27,7 +27,9 @@ class Controller_list extends Controller{
         }
         else{
             $insert=$this->validate($_POST['list']);
-            $result=model_list::list_edd($insert,$_SESSION['user']['id']);
+            $add['name']=$insert;
+            $add['user']=$_SESSION['user']['id'];
+            $result=model_list::list_edd($add);
             if($result){
                 header("location: /user");
             }
@@ -50,13 +52,13 @@ class Controller_list extends Controller{
             }
             elseif($_POST['add_user']){
                 $result=Model_list::user($_POST['add_user']);
-                 if(!$user_id=mysql_fetch_array($result)){
+                 if(!$user_id=$result->fetch() ){
                     $error="Такой пользователь не зарегистрирован";
                 }
                 else{
                                
                     $result=Model_list::user_list_valid($user_id['id'],$_GET['id']);
-                    if(mysql_fetch_array($result)){
+                    if($result->fetch() ){
                         $error="Такой пользователь уже имеет права на этот список";
                     }
                     else{

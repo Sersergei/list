@@ -3,7 +3,7 @@
 <br />
 <?php
 
-while($array = mysql_fetch_array($data['1']))
+while($array = $data['1']->fetch())
 {
 echo "<a href=\"/list/view/?id=".$array['id']. " \"> ".$array['name']."</a><br>";
 }
@@ -11,7 +11,7 @@ echo "<a href=\"/list/view/?id=".$array['id']. " \"> ".$array['name']."</a><br>"
 ?>
 <br /> Доступные списки
 <?php
-while($array = mysql_fetch_array($data['2']))
+while($array = $data['2']->fetch())
 {
 echo "<a href=\"/list/view/?id=".$array['id']. " \"> ".$array['name']."</a><br>";
 }

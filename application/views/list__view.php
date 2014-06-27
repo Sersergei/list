@@ -7,10 +7,11 @@
 <td> Цена</td>
 </tr>
 <?php
-while($array = mysql_fetch_array($data['result']))
+while($array = $data['result']->fetch())
 {
     
-echo("<tr><td>".$array['name_goods']."</td><td>".$array['qti']."</td><td>".$array['measure']."</td><td>".$array['price']."</td></tr>");
+echo("<tr><td>".$array['name_goods']."</td><td>".$array['qti'][$i]."</td><td>".$array['measure'][$i]."</td><td>".$array['price'][$i]."</td></tr>");
+$i++;
 }
 ?>
 </table>

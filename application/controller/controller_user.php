@@ -5,7 +5,7 @@ class Controller_User extends Controller{
     function action_index()
     {	header("Refresh: 10");
         if(!$_SESSION['user']['login']){$this->redirect();}
-        $result['1']=Model_user::select_list($_SESSION['user']['id']);
+        $result[1]=Model_user::select_list($_SESSION['user']['id']);
         $result[2]=Model_user::select_list_part($_SESSION['user']['id']);// Выборка доверительных списков
         $this->view->generate('user_view.php', 'template_view.php',$result);
         
@@ -43,7 +43,7 @@ class Controller_User extends Controller{
            $valid= $this->validate($_POST);//отправляем данные на проверку
             
            if(!isset($valid['error'])){
-            $insert=Model_user::reg($valid['login'],$valid['password'],$valid['email']);
+            $insert=Model_user::reg($valid);
         if(!$insert){
             $this->action_avto($_POST);
         }
@@ -77,7 +77,7 @@ class Controller_User extends Controller{
         $valid['login']=$login;
         $valid['password']=$password;
         $valid['email']=$email;
-        $valid['error']=$error;
+        //$valid['error']=$error;
         
         return $valid;
         }

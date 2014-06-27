@@ -20,7 +20,7 @@
 </tr>
 <input type="hidden" name="mydata" id="mydata" value="<?php echo($_GET[id]); ?>" />
 <?php
-while($array = mysql_fetch_array($data['result']))
+while($array = $data['result']->fetch())
 {
     
 echo("<tr><td>".$array['name_goods']."</td><td>".$array['qti']."</td><td>".$array['measure']."</td><td>".$array['price']."</td>

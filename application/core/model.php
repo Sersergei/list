@@ -1,16 +1,19 @@
 <?php
 class Model
 {
-     
-    public static function query($request)
-  {
-    include 'config_db.php';
-    $handle = mysql_connect($host, $user, $password) 
-    or die("Извините сейчас невозможно подключиться к базе данных".mysql_error());
-    mysql_select_db($db_name, $handle) or die ( " Базы данных не существует.".mysql_error() );
-   	$result = mysql_query  ($request, $handle);
-    mysql_close($handle);
-    return $result;
-  }  
+     function connect(){
+        require_once "config_db.php";
+        try{
+            $connect_str = DB_DRIVER . ':host='. DB_HOST . ';dbname=' . DB_NAME;
+            $db = new PDO($connect_str,DB_USER,DB_PASS);
+            return $this->db=$db;
+        }
+        catch(PDOException $e) {  
+            echo $e->getMessage();  
+}
+     }
+     function __destruct(){
+       // $db=null;
+     }
 }
 ?>

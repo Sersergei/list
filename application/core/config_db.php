@@ -1,7 +1,7 @@
 <?php
-//* Здесь храниться настройки подключения к базе данных*//
-$host="localhost";
-$user="root";
-$password="";
-$db_name="shopping";
+define('DB_DRIVER','mysql');
+define('DB_HOST','localhost');
+define('DB_NAME','shopping');
+define('DB_USER','root');
+define('DB_PASS','');
 ?>
