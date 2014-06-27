@@ -43,7 +43,7 @@ class Controller_User extends Controller{
            $valid= $this->validate($_POST);//отправляем данные на проверку
             
            if(!isset($valid['error'])){
-            $insert=Model_user::reg($valid['login'],$valid['password'],$valid['email']);
+            $insert=Model_user::reg($valid);
         if(!$insert){
             $this->action_avto($_POST);
         }
@@ -77,7 +77,7 @@ class Controller_User extends Controller{
         $valid['login']=$login;
         $valid['password']=$password;
         $valid['email']=$email;
-        $valid['error']=$error;
+        //$valid['error']=$error;
         
         return $valid;
         }

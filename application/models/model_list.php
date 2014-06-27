@@ -1,11 +1,12 @@
 <?php
     class Model_list extends Model{
         function list_edd($name,$user){
-            $result=Model::query("INSERT INTO list(name,user_id) VALUES ('$name','$user')");
+            $result=Model::connect()->query("INSERT INTO list(name,user_id) VALUES (:name,:user)");
+            $result->execute($data);
             return $result;
         }
         function list_view($id){
-            $result=Model::query("SELECT * FROM `list` WHERE id='$id'");
+            $result=Model::connect()->query("SELECT * FROM `list` WHERE id='$id'");
             $result=mysql_fetch_array($result);
             return $result;
         }

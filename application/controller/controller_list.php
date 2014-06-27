@@ -27,7 +27,9 @@ class Controller_list extends Controller{
         }
         else{
             $insert=$this->validate($_POST['list']);
-            $result=model_list::list_edd($insert,$_SESSION['user']['id']);
+            $add['name']=$insert;
+            $add['user']=$_SESSION['user']['id'];
+            $result=model_list::list_edd($add);
             if($result){
                 header("location: /user");
             }
