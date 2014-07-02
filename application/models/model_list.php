@@ -6,7 +6,12 @@
             return $result;
         }
         function list_view($id){
+<<<<<<< HEAD
             $result['result']=Model::connect()->query("SELECT * FROM `list` WHERE id='$id'");
+=======
+            $result=Model::connect()->query("SELECT * FROM `list` WHERE id='$id'");
+            $result=mysql_fetch_array($result);
+>>>>>>> 44daa994e1b88b75a9ad8c62570c8f3569f69ae7
             return $result;
         }
         function list_goods($id){
